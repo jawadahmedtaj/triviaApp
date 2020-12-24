@@ -1,20 +1,19 @@
 <template>
   <div id="app">
-    <Question msg="Welcome to Your Vue.js App" />
+    <Questions />
   </div>
 </template>
 
 <script>
-import Question from "./components/Question.vue";
+import Questions from "./components/Questions.vue";
 
 export default {
   name: "App",
   components: {
-    Question
-  }
+    Questions,
+  },
 };
 </script>
 
 <style lang="scss">
-
 </style>
