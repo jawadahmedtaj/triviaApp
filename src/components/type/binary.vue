@@ -1,6 +1,13 @@
 <template>
   <div>
     {{ msg }}
+    <v-row>
+      <v-col>
+        <v-btn depressed color="primary" @click="onClickChild1">
+          Click me
+        </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -8,8 +15,14 @@
 export default {
   name: "binary",
   props: {
-    msg: String
-  }
+    msg: String,
+  },
+  methods: {
+    onClickChild1() {
+      console.log("Log from binary");
+      this.$emit("onClickChild", "value");
+    },
+  },
 };
 </script>
 
