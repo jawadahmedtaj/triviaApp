@@ -1,17 +1,22 @@
 <template>
-  <div id="app">
-    <Questions />
-  </div>
+  <v-app>
+    <v-main>
+      <Questions />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Questions from "./components/Questions.vue";
+import Questions from "./components/Questions";
 
 export default {
   name: "App",
+
   components: {
     Questions,
   },
+
+  data: () => ({}),
 };
 </script>
 

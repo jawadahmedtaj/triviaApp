@@ -8,10 +8,9 @@
 export default {
   name: "fillBlank",
   props: {
-    msg: String,
-  },
+    msg: String
+  }
 };
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

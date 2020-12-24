@@ -17,10 +17,9 @@ export default {
   components: {
     MCQ,
     binary,
-    fillBlank,
-  },
+    fillBlank
+  }
 };
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

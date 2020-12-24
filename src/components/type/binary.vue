@@ -1,6 +1,6 @@
 <template>
   <div>
-      {{msg}}
+    {{ msg }}
   </div>
 </template>
 
@@ -8,10 +8,9 @@
 export default {
   name: "binary",
   props: {
-      msg: String
-  },
+    msg: String
+  }
 };
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
