@@ -1,9 +1,22 @@
 <template>
-  <v-row justify="center">
-    <v-slide-y-transition>
-      <v-card-text v-show="show"> <Questions /> </v-card-text>
-    </v-slide-y-transition>
-  </v-row>
+  <div>
+    <v-row class="d-flex justify-center align-content-center" height="100%">
+      <v-col class="">
+        <v-slide-y-reverse-transition>
+          <div v-show="questionShow">
+            <v-btn depressed primary @click="questionDecider"> Click me </v-btn>
+          </div>
+        </v-slide-y-reverse-transition>
+      </v-col>
+    </v-row>
+    <v-row class="d-flex justify-center align-content-center" height="100%">
+      <v-col class="">
+        <v-slide-y-transition>
+          <div v-show="show"><Questions /></div>
+        </v-slide-y-transition>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
@@ -11,13 +24,12 @@ import Questions from "./components/Questions";
 
 export default {
   name: "App",
-
   components: {
     Questions,
   },
-
   data: () => ({
-    show: true,
+    questionShow: true,
+    show: false,
     selected: null,
     MCQs: {
       madi: [
@@ -65,8 +77,17 @@ export default {
       ],
     },
   }),
+  methods: {
+    questionDecider() {
+      console.log("Question decider clicked!");
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+.fullDisplay {
+  height: 100vh;
+  width: 100%;
+}
 </style>

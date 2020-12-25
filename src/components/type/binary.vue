@@ -4,7 +4,7 @@
     <v-row>
       <v-col>
         <v-btn depressed color="primary" @click="onClickChild1">
-          Click me
+          Binary click me
         </v-btn>
       </v-col>
     </v-row>
