@@ -1,31 +1,33 @@
 <template>
-  <v-container>
-    <v-row class="d-flex justify-center align-content-center" height="100%">
-      <v-col class="">
-        <v-slide-y-reverse-transition>
-          <div v-show="questionShow">
-            <v-btn depressed primary @click="questionDecider"> Click me </v-btn>
-          </div>
-        </v-slide-y-reverse-transition>
-      </v-col>
-    </v-row>
-    <v-row class="d-flex justify-center align-content-center" height="100%">
-      <v-col class="">
+  <v-app>
+    <v-container>
+      <v-row class="d-flex justify-center align-content-center" height="100%">
+        <v-col class="">
+          <v-slide-y-reverse-transition>
+            <div v-show="questionShow">
+              <v-btn depressed primary @click="questionDecider"> Click me </v-btn>
+            </div>
+          </v-slide-y-reverse-transition>
+        </v-col>
+      </v-row>
+      <v-row class="d-flex justify-center align-content-center" height="100%">
+        <v-col class="">
+          <v-slide-y-transition>
+            <div v-show="show"><Questions /></div>
+          </v-slide-y-transition>
+        </v-col>
+      </v-row>
+      <div id="app">
+        <div id="nav">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/about">About</router-link>
+        </div>
         <v-slide-y-transition>
-          <div v-show="show"><Questions /></div>
+          <router-view />
         </v-slide-y-transition>
-      </v-col>
-    </v-row>
-    <div id="app">
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
       </div>
-      <v-slide-y-transition>
-        <router-view />
-      </v-slide-y-transition>
-    </div>
-  </v-container>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
