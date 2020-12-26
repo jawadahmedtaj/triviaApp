@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-row class="d-flex justify-center align-content-center" height="100%">
       <v-col class="">
         <v-slide-y-reverse-transition>
@@ -16,7 +16,7 @@
         </v-slide-y-transition>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -79,7 +79,8 @@ export default {
   }),
   methods: {
     questionDecider() {
-      console.log("Question decider clicked!");
+      this.questionShow = false;
+      this.show = true;
     },
   },
 };
