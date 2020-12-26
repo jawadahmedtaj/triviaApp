@@ -21,7 +21,9 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
       </div>
-      <router-view />
+      <v-slide-y-transition>
+        <router-view />
+      </v-slide-y-transition>
     </div>
   </v-container>
 </template>
@@ -32,7 +34,7 @@ import Questions from "./components/Questions";
 export default {
   name: "App",
   components: {
-    Questions,
+    Questions
   },
   data: () => ({
     questionShow: true,
@@ -44,52 +46,52 @@ export default {
           question: "Question 1",
           answers: {
             1: "first option",
-            2: "second option",
+            2: "second option"
           },
           answer: 1,
-          answered: false,
+          answered: false
         },
         {
           question: "Question 2",
           answers: {
             1: "first option",
-            2: "second option",
+            2: "second option"
           },
           answer: 2,
-          answered: false,
-        },
-      ],
+          answered: false
+        }
+      ]
     },
     binary: {
       madi: [
         {
           question: "Question 1",
           answer: 1,
-          answered: false,
+          answered: false
         },
         {
           question: "Question 2",
           answer: 2,
-          answered: false,
-        },
-      ],
+          answered: false
+        }
+      ]
     },
     fillBlank: {
       jawad: [
         {
           question: "Sparky get a ____",
           answer: "life",
-          answered: false,
-        },
-      ],
-    },
+          answered: false
+        }
+      ]
+    }
   }),
   methods: {
     questionDecider() {
       this.questionShow = false;
       this.show = true;
-    },
-  },
+    }
+  }
 };
 </script>
 
