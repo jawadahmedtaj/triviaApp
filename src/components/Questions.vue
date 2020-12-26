@@ -17,13 +17,13 @@ export default {
   components: {
     MCQ,
     binary,
-    fillBlank,
+    fillBlank
   },
   methods: {
     onClickChild(value) {
       console.log(value, "Emitted from questions");
-    },
-  },
+    }
+  }
 };
 </script>
 

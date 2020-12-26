@@ -15,14 +15,14 @@
 export default {
   name: "binary",
   props: {
-    msg: String,
+    msg: String
   },
   methods: {
     onClickChild1() {
       console.log("Log from binary");
       this.$emit("onClickChild", "value");
-    },
-  },
+    }
+  }
 };
 </script>
 
