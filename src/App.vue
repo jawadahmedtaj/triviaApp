@@ -2,9 +2,9 @@
   <v-app>
     <v-container class="fullDisplay" fluid>
       <div id="app">
-        <v-slide-y-transition>
+        <v-fade-transition hide-on-leave>
           <router-view />
-        </v-slide-y-transition>
+        </v-fade-transition>
       </div>
     </v-container>
   </v-app>
@@ -37,7 +37,9 @@ export default {
   justify-content: center;
   flex-direction: column;
 }
-.buttonAdjuster {
-  margin-right: 50px;
+.backButtonAdjuster {
+  position: absolute !important;
+  left: 1%;
+  top: 2%;
 }
 </style>

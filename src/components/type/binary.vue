@@ -2,12 +2,14 @@
   <div>
     <v-row>
       <v-col>
-        <v-btn depressed color="primary" @click="onClickChild1">
-          Binary click me
+        <v-btn class="backButtonAdjuster" color="warning" to="/">
+          <v-icon color=""> mdi-home </v-icon>
         </v-btn>
+        <p class="question">What is this?</p>
         <v-spacer></v-spacer>
-
-        <v-btn color="warning" to="/"> Go back </v-btn>
+        <v-btn depressed class="buttonAdjuster" color="primary"> Yes </v-btn>
+        <v-btn depressed color="error"> No </v-btn>
+        <v-spacer></v-spacer>
       </v-col>
     </v-row>
   </div>
@@ -16,11 +18,14 @@
 <script>
 export default {
   name: "binary",
-  methods: {
-    onClickChild1() {
-      console.log("Log from binary");
-      this.$emit("onClickChild", "value");
-    },
+  methods: {},
+  data() {
+    return {
+      binary: undefined,
+    };
+  },
+  mounted() {
+    this.binary = this.$store.state.binary;
   },
 };
 </script>

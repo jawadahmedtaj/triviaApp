@@ -1,8 +1,16 @@
 <template>
   <div>
-    <v-btn depressed color="primary" @click="adder"> Increment </v-btn>
+    <v-btn class="backButtonAdjuster" color="warning" to="/">
+      <v-icon color=""> mdi-home </v-icon>
+    </v-btn>
+    <div>
+      <p>Fill in the blank:</p>
+      <div>
+        <input type="text" maxlength="1" placeholder="_" />
+      </div>
+    </div>
+    <v-btn depressed color="primary" @click="adder"> Check Answer </v-btn>
     <v-spacer> </v-spacer>
-    <v-btn color="warning" to="/"> Go back </v-btn>
   </div>
 </template>
 
@@ -10,6 +18,14 @@
 export default {
   name: "fillBlank",
   props: {},
+  data() {
+    return {
+      fillBlank: undefined,
+    };
+  },
+  mounted() {
+    this.fillBlank = this.$store.state.fillBlank;
+  },
   methods: {
     adder() {
       this.$store.commit("increment");
