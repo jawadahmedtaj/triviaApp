@@ -51,9 +51,18 @@ export default new Vuex.Store({
       }
     ],
     messages: {
-      maadi: "",
-      jawad: "",
-      fawad: ""
+      maadi: [
+        "",
+        false
+      ],
+      Jawad: [
+        "",
+        false
+      ],
+      Fawad: [
+        "",
+        false
+      ]
     }
   },
   mutations: {
