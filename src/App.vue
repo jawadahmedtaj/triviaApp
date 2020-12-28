@@ -42,4 +42,14 @@ export default {
   left: 1%;
   top: 2%;
 }
+.leftMoveButton {
+  position: absolute !important;
+  bottom: 5%;
+  left: 5%;
+}
+.rightMoveButton {
+  position: absolute !important;
+  bottom: 5%;
+  right: 5%;
+}
 </style>

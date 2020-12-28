@@ -9,7 +9,7 @@ export default new Vuex.Store({
     MCQs: [
       {
         by: "Jawad",
-        question: "Question 1",
+        question: "Why are you gay?",
         answers: {
           1: "first option",
           2: "second option"
@@ -31,7 +31,7 @@ export default new Vuex.Store({
     binary: [
       {
         by: "Jawad",
-        question: "Question 1",
+        question: "Why are you gay?",
         answer: 1,
         answered: false
       },

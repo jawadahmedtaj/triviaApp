@@ -5,11 +5,55 @@
         <v-btn class="backButtonAdjuster" color="warning" to="/">
           <v-icon color=""> mdi-home </v-icon>
         </v-btn>
-        <p class="question">What is this?</p>
-        <v-spacer></v-spacer>
-        <v-btn depressed class="buttonAdjuster" color="primary"> Yes </v-btn>
-        <v-btn depressed color="error"> No </v-btn>
-        <v-spacer></v-spacer>
+        <v-row justify="center">
+          <p class="display-1">{{ binary[counter].question }}</p>
+        </v-row>
+        <v-row justify="center" class="mt-12">
+          <v-btn
+            depressed
+            class="buttonAdjuster"
+            color="primary"
+            @click="answerChecker(1)"
+            :disabled="binary[counter].answered"
+          >
+            Yes
+          </v-btn>
+          <v-btn
+            depressed
+            color="error"
+            @click="answerChecker(2)"
+            :disabled="binary[counter].answered"
+          >
+            No
+          </v-btn>
+        </v-row>
+        <v-row>
+          <v-fade-transition>
+            <p class="display-1 mt-12" v-if="rightAnswer !== ''">
+              {{ rightAnswer }}
+            </p>
+          </v-fade-transition>
+        </v-row>
+        <v-row justify="space-between">
+          <v-btn
+            class="leftMoveButton"
+            depressed
+            color="warning"
+            v-on:click="counter -= 1"
+            :disabled="counter === 0"
+          >
+            <v-icon>mdi-arrow-left-bold-circle</v-icon>
+          </v-btn>
+          <v-btn
+            class="rightMoveButton"
+            depressed
+            color="warning"
+            v-on:click="counter += 1"
+            :disabled="counter === binary.length - 1"
+          >
+            <v-icon>mdi-arrow-right-bold-circle</v-icon>
+          </v-btn>
+        </v-row>
       </v-col>
     </v-row>
   </div>
@@ -18,11 +62,23 @@
 <script>
 export default {
   name: "binary",
-  methods: {},
   data() {
     return {
+      counter: 0,
       binary: this.$store.state.binary,
+      rightAnswer: "",
     };
+  },
+  methods: {
+    answerChecker(value) {
+      if (value === this.binary[this.counter].answer) {
+        this.binary[this.counter].answered = true;
+        this.rightAnswer =
+          "Congratulations for once in your life you got something right!";
+      } else {
+        this.rightAnswer = "Boo boo! wrong answer";
+      }
+    },
   },
   mounted() {},
 };

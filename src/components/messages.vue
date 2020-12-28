@@ -57,7 +57,7 @@ export default {
         this.messages[value].reveal = true;
       } else {
         let mes = [
-          "You must venture back into questions and answer atleast 1 accurately to finally reveal this secret",
+          "You must venture back into questions and answer atleast 1 question by this person accurately to reveal their wish",
           "Peepopointlaugh",
           "You thought you were getting a reward but you got me... Dio",
         ];
