@@ -2,9 +2,13 @@
   <v-app>
     <v-container class="fullDisplay" fluid>
       <div id="app">
-        <v-slide-y-transition>
-          <router-view />
-        </v-slide-y-transition>
+        <div id="nav">
+          <v-btn class="buttonAdjuster" color="primary" to="/binary"
+            >Yes or No Questions</v-btn
+          >
+          <v-btn class="buttonAdjuster" color="warning" to="/MCQ">MCQs</v-btn>
+          <v-btn color="error" to="/fillBLank">Fill in the blanks</v-btn>
+        </div>
       </div>
     </v-container>
   </v-app>
@@ -14,17 +18,8 @@
 export default {
   name: "App",
   components: {},
-  data: () => ({
-    questionShow: true,
-    show: false,
-    selected: null,
-  }),
-  methods: {
-    questionDecider() {
-      this.questionShow = false;
-      this.show = true;
-    },
-  },
+  data: () => ({}),
+  methods: {},
 };
 </script>
 

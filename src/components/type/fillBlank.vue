@@ -1,16 +1,15 @@
 <template>
   <div>
-    {{ msg }}
     <v-btn depressed color="primary" @click="adder"> Increment </v-btn>
+    <v-spacer> </v-spacer>
+    <v-btn color="warning" to="/"> Go back </v-btn>
   </div>
 </template>
 
 <script>
 export default {
   name: "fillBlank",
-  props: {
-    msg: String,
-  },
+  props: {},
   methods: {
     adder() {
       this.$store.commit("increment");
