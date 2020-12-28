@@ -51,18 +51,42 @@ export default new Vuex.Store({
       }
     ],
     messages: {
-      maadi: [
-        "",
-        false
-      ],
-      Jawad: [
-        "",
-        false
-      ],
-      Fawad: [
-        "",
-        false
-      ]
+      Madi:
+      {
+        message: "Test",
+        status: true,
+        reveal: false
+      },
+      Jawad:
+      {
+        message: "Test1",
+        status: false,
+        reveal: false
+      },
+      Fawad:
+      {
+        message: "Test2",
+        status: false,
+        reveal: false
+      },
+      Muneeb:
+      {
+        message: "Test",
+        status: true,
+        reveal: false
+      },
+      Rabei:
+      {
+        message: "Test1",
+        status: false,
+        reveal: false
+      },
+      Shumaita:
+      {
+        message: "Test2",
+        status: true,
+        reveal: false
+      },
     }
   },
   mutations: {
