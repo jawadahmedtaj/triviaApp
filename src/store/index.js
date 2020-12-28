@@ -27,7 +27,7 @@ export default new Vuex.Store({
           answered: false
         }
       ]
-    }, 
+    },
     binary: {
       madi: [
         {
@@ -50,6 +50,11 @@ export default new Vuex.Store({
           answered: false
         }
       ]
+    },
+    messages: {
+      maadi: "",
+      jawad: "",
+      fawad: ""
     }
   },
   mutations: {

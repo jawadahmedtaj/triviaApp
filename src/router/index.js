@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Binary from "../components/type/binary.vue"
 import MCQ from "../components/type/MCQ.vue"
 import fillBlank from "../components/type/fillBlank.vue"
+import messages from "../components/messages.vue"
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/fillBlank",
     name: "Fill in the blanks",
     component: fillBlank
+  },
+  {
+    path: "/wishes",
+    name: "Messages",
+    component: messages
   },
 ];
 
