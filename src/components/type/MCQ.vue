@@ -14,11 +14,10 @@ export default {
   props: {},
   data() {
     return {
-      MCQs: undefined,
+      MCQs: this.$store.state.MCQs,
     };
   },
   mounted() {
-    this.MCQs = this.$store.state.MCQs;
   },
 };
 </script>

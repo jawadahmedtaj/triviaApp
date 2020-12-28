@@ -21,12 +21,10 @@ export default {
   methods: {},
   data() {
     return {
-      binary: undefined,
+      binary: this.$store.state.binary,
     };
   },
-  mounted() {
-    this.binary = this.$store.state.binary;
-  },
+  mounted() {},
 };
 </script>
 

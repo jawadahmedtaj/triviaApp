@@ -20,11 +20,10 @@ export default {
   props: {},
   data() {
     return {
-      fillBlank: undefined,
+      fillBlank: this.$store.state.fillBlank,
     };
   },
   mounted() {
-    this.fillBlank = this.$store.state.fillBlank;
   },
   methods: {
     adder() {
