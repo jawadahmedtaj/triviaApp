@@ -18,7 +18,7 @@ export default new Vuex.Store({
         answered: false
       },
       {
-        by: "Jawad",
+        by: "Hammad",
         question: "Question 2",
         answers: {
           1: "first option",
@@ -31,13 +31,13 @@ export default new Vuex.Store({
     binary: [
       {
         by: "Jawad",
-        question: "Why are you gay?",
+        question: "Question 1? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
         answer: 1,
         answered: false
       },
       {
-        by: "Jawad",
-        question: "Question 2",
+        by: "Hammad",
+        question: "Question 2? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
         answer: 2,
         answered: false
       }
@@ -51,7 +51,7 @@ export default new Vuex.Store({
       }
     ],
     messages: {
-      Madi:
+      Hammad:
       {
         message: "Test",
         status: true,
@@ -81,7 +81,7 @@ export default new Vuex.Store({
         status: false,
         reveal: false
       },
-      Shumaita:
+      boiiiiii:
       {
         message: "Test2",
         status: true,

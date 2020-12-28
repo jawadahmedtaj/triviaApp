@@ -19,7 +19,12 @@
             </p>
           </v-card-text>
           <v-card-actions>
-            <v-btn text color="teal accent-4" @click="revealChecker(key)">
+            <v-btn
+              text
+              color="teal accent-4"
+              @click="revealChecker(key)"
+              :disabled="message.reveal"
+            >
               Reveal message
             </v-btn>
           </v-card-actions>

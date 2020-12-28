@@ -27,10 +27,10 @@
             No
           </v-btn>
         </v-row>
-        <v-row>
+        <v-row justify="center">
           <v-fade-transition>
-            <p class="display-1 mt-12" v-if="rightAnswer !== ''">
-              {{ rightAnswer }}
+            <p class="display-1 mt-12" v-if="rightAnswer[counter] !== ''">
+              {{ rightAnswer[counter] }}
             </p>
           </v-fade-transition>
         </v-row>
@@ -66,20 +66,24 @@ export default {
     return {
       counter: 0,
       binary: this.$store.state.binary,
-      rightAnswer: "",
+      rightAnswer: new Array(this.$store.state.binary.length),
     };
   },
   methods: {
     answerChecker(value) {
       if (value === this.binary[this.counter].answer) {
         this.binary[this.counter].answered = true;
-        this.rightAnswer =
-          "Congratulations for once in your life you got something right!";
+        this.rightAnswer[this.counter] =
+          "Congratulations for once in your life you got something right! Question by: " +
+          this.binary[this.counter].by;
       } else {
-        this.rightAnswer = "Boo boo! wrong answer";
+        this.binary[this.counter].answered = true;
+        this.binary[this.counter].answered = false;
+        this.rightAnswer[this.counter] = "Boo boo! wrong answer";
       }
     },
   },
+  watch: {},
   mounted() {},
 };
 </script>
