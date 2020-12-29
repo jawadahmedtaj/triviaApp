@@ -4,13 +4,18 @@
       <v-icon color=""> mdi-home </v-icon>
     </v-btn>
     <div>
-      <p>Fill in the blank:</p>
-      <div>
-        <input type="text" maxlength="1" placeholder="_" />
-      </div>
+      <p class="display-1">{{ fillBlank[counter].question }}</p>
     </div>
-    <v-btn depressed color="primary" @click="adder"> Check Answer </v-btn>
-    <v-spacer> </v-spacer>
+    <v-row justify="center">
+      <v-btn
+        depressed
+        class="buttonAdjuster"
+        color="warning"
+        :disabled="fillBlank[counter].answered"
+      >
+        Check answers
+      </v-btn>
+    </v-row>
   </div>
 </template>
 
@@ -20,14 +25,14 @@ export default {
   props: {},
   data() {
     return {
+      counter: 0,
       fillBlank: this.$store.state.fillBlank,
+      rightAnswer: new Array(this.$store.state.MCQs.length).fill(" "),
+      // keyboard: ["q","w","e","r"]
     };
   },
-  mounted() {
-  },
-  methods: {
-    
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 

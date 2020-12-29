@@ -48,7 +48,13 @@ export default new Vuex.Store({
       {
         by: "Jawad",
         question: "Sparky get a ____",
-        answer: "life",
+        answer: ["l", "i", "f", "e"],
+        answered: false
+      },
+      {
+        by: "Madi",
+        question: "Sparky ____ get a",
+        answer: ["l", "i", "f", "e"],
         answered: false
       }
     ],
