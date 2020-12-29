@@ -61,6 +61,9 @@ export default {
       MCQs: this.$store.state.MCQs,
     };
   },
+  mounted() {
+    this.$toast.clear();
+  },
   methods: {
     answerChecker(e) {
       const objLen = Object.keys(this.MCQs[this.counter].answers).length;

@@ -64,18 +64,29 @@ export default {
       link: "https://youtu.be/DLzxrzFCyOs",
     };
   },
+  mounted() {
+    this.$toast.clear();
+  },
   methods: {
     linkChange() {
-      this.counter++;
+      this.$toast.open({
+        message: "Okay sorry :( please click the image again c:",
+        position: "bottom",
+        type: "error",
+        duration: 60000,
+      });
       if (this.counter === 101) {
         this.link = "https://youtu.be/y6120QOlsfU";
+        this.$toast.clear();
         this.$toast.open({
-          message: "Okay sorry :( please click the image again c:",
+          message: "AAAAAA okay serious this time, click image again pls c:",
           position: "bottom",
-          type: "info",
           duration: 60000,
         });
+      } else if (this.counter === 102) {
+        this.link = "#";
       }
+      this.counter++;
     },
     revealChecker(value) {
       if (this.messages[value].status) {

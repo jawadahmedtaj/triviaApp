@@ -61,6 +61,9 @@ export default {
       binary: this.$store.state.binary,
     };
   },
+  mounted() {
+    this.$toast.clear();
+  },
   methods: {
     answerChecker(value) {
       if (value === this.binary[this.counter].answer) {

@@ -18,9 +18,9 @@
 <script>
 export default {
   name: "App",
-  components: {},
-  data: () => ({}),
-  methods: {},
+  mounted() {
+    this.$toast.clear();
+  },
 };
 </script>
 

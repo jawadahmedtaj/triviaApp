@@ -50,6 +50,8 @@ export default {
   },
   mounted() {
     this.posHolder = this.fillBlank[this.counter].question.indexOf("_");
+
+    this.$toast.clear();
   },
   methods: {
     onKeyPress(button) {
