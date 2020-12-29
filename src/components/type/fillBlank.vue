@@ -59,7 +59,7 @@ export default {
       posHolder: 0,
       firstCheck: false,
       rightAnswer: new Array(this.$store.state.fillBlank.length).fill(
-        "Fill in the blank!"
+        "Fill in the blanks!"
       ),
     };
   },
