@@ -27,18 +27,6 @@
             No
           </v-btn>
         </v-row>
-        <v-row justify="center">
-          <v-fade-transition>
-            <p
-              class="display-1 mt-12"
-              v-if="
-                binary[counter].answered === true || rightAnswer[counter] !== ''
-              "
-            >
-              {{ rightAnswer[counter] }}
-            </p>
-          </v-fade-transition>
-        </v-row>
         <v-row justify="space-between">
           <v-btn
             class="leftMoveButton"
@@ -71,22 +59,55 @@ export default {
     return {
       counter: 0,
       binary: this.$store.state.binary,
-      rightAnswer: new Array(this.$store.state.binary.length).fill(
-        "So, which one is it?"
-      ),
     };
   },
   methods: {
     answerChecker(value) {
       if (value === this.binary[this.counter].answer) {
         this.binary[this.counter].answered = true;
-        this.rightAnswer[this.counter] =
-          "Congratulations for once in your life you got something right! Question by: " +
-          this.binary[this.counter].by;
+        const mes = [
+          "Congratulations you got something right",
+          "Fine I will give you this win",
+          "Wait... okay",
+          "Brain cells finally started working?",
+          "Yes congratulations you got 1 out of 2 choices correct... Big brain move",
+          "This does seem right",
+          "Oh wow, you actually got it! Good job! Have a cookie!",
+          "I am usually not this nice but okay you got it!",
+          "Aye!",
+          "You ain't smart... The question was just dumb c:",
+        ];
+        const choice = Math.floor(Math.random() * mes.length);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+        });
+        setTimeout(() => {
+          this.$toast.open({
+            message: "The question was by: " + this.binary[this.counter].by,
+            position: "bottom",
+            type: "info",
+          });
+        }, 1000);
       } else {
-        this.binary[this.counter].answered = true;
-        this.binary[this.counter].answered = false;
-        this.rightAnswer[this.counter] = "Boo boo! Wrong answer";
+        const mes = [
+          "Boo boo! wrong answer!",
+          "Are you even trying?",
+          "Sigh... Just select the other option and get this over with please",
+          "Get a life, the other option is the correct one",
+          ":(",
+          "wow",
+          "Have you tried the other option?",
+          "THAT IS NOT THE RIGHT ANSWER!!",
+        ];
+        const choice = Math.floor(Math.random() * mes.length);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+          type: "error",
+        });
       }
     },
   },

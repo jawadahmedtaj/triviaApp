@@ -9,18 +9,6 @@
     <v-row justify="center" class="keyboardWidth">
       <SimpleKeyboard @onKeyPress="onKeyPress" />
     </v-row>
-    <v-row justify="center">
-      <v-fade-transition>
-        <p
-          class="display-1 mt-12"
-          v-if="
-            fillBlank[counter].answered === true || rightAnswer[counter] !== ''
-          "
-        >
-          {{ rightAnswer[counter] }}
-        </p>
-      </v-fade-transition>
-    </v-row>
     <v-row justify="space-between">
       <v-btn
         class="leftMoveButton"
@@ -58,9 +46,6 @@ export default {
       fillBlank: this.$store.state.fillBlank,
       posHolder: 0,
       firstCheck: false,
-      rightAnswer: new Array(this.$store.state.fillBlank.length).fill(
-        "Fill in the blanks!"
-      ),
     };
   },
   mounted() {
@@ -76,15 +61,54 @@ export default {
           button
         );
         this.fillBlank[this.counter].answer[wordPos] = "_";
+        const mes = [
+          "Congratulations you got one right",
+          "Fine I will give you this one",
+          "Wait... okay",
+          "Does this even count?",
+          "Is this even English?",
+          "Brain cells finally started working?",
+          "This does seem right",
+          "Oh wow, you actually got it! Good job! Have a cookie!",
+          "I am usually not this nice but okay you got it!",
+          "Aye!",
+          "Congratulations now you know your A B C",
+        ];
+        const choice = Math.floor(Math.random() * mes.length);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+        });
+        setTimeout(() => {
+          this.$toast.open({
+            message: "The question was by: " + this.binary[this.counter].by,
+            position: "bottom",
+            type: "info",
+          });
+        }, 1000);
       } else {
-        this.counter += 1;
-        this.counter -= 1;
-        this.rightAnswer[this.counter] = "Boo boo! Guess again";
+        const mes = [
+          "Boo boo! wrong letter!",
+          "Are you even trying?",
+          "There are 26 letters, have you tried others?",
+          "Chief... That ain't it",
+          ":(",
+          "wow",
+          "Didn't you just try this?",
+          "THAT IS NOT THE RIGHT LETTER!!",
+          "I feel like you are plaing hangman, but I am the one who wants to be hanged",
+          "Do you even know your A B C?",
+        ];
+        const choice = Math.floor(Math.random() * mes.length);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+          type: "error",
+        });
       }
       if (this.fillBlank[this.counter].question.indexOf("_") < 0) {
-        this.rightAnswer[this.counter] =
-          "Congratulations for once in your life you got something right! Question by: " +
-          this.fillBlank[this.counter].by;
         this.fillBlank[this.counter].answered = true;
       }
     },

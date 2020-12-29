@@ -38,6 +38,12 @@
                 <p>
                   {{ message.message }}
                 </p>
+                <a target="_blank" :href="link" @click="linkChange">
+                  <v-img
+                    v-if="key === 'special'"
+                    src="../assets/imgs/magik.png"
+                  ></v-img>
+                </a>
               </v-card-text>
             </v-card>
           </v-expand-transition>
@@ -54,20 +60,109 @@ export default {
     return {
       reveal: false,
       messages: this.$store.state.messages,
+      counter: 0,
+      link: "https://youtu.be/DLzxrzFCyOs",
     };
   },
   methods: {
+    linkChange() {
+      this.counter++;
+      if (this.counter === 101) {
+        this.link = "https://youtu.be/y6120QOlsfU";
+        this.$toast.open({
+          message: "Okay sorry :( please click the image again c:",
+          position: "bottom",
+          type: "info",
+          duration: 60000,
+        });
+      }
+    },
     revealChecker(value) {
       if (this.messages[value].status) {
         this.messages[value].reveal = true;
+      } else if (value === "special") {
+        this.counter++;
+        if (this.counter === 1) {
+          this.$toast.open({
+            message: "This does seem to be doing something... Keep going?",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 5) {
+          this.$toast.open({
+            message: "You are close keep going!",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 7) {
+          this.$toast.open({
+            message: "Congratulations you are an android developer now!",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 40) {
+          this.$toast.open({
+            message:
+              "Sorry I lied earlier, you are nowhere near close enough, but click faster!",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 75) {
+          this.$toast.open({
+            message: "A",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 76) {
+          this.$toast.open({
+            message: "l",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 77) {
+          this.$toast.open({
+            message: "m",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 78) {
+          this.$toast.open({
+            message: "o",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 79) {
+          this.$toast.open({
+            message: "s",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 80) {
+          this.$toast.open({
+            message: "t",
+            position: "bottom",
+            type: "info",
+          });
+        } else if (this.counter === 100) {
+          this.messages[value].reveal = true;
+          this.$toast.open({
+            message: "YOU GOT IT!",
+            position: "bottom",
+          });
+        }
       } else {
-        let mes = [
+        const mes = [
           "You must venture back into questions and answer atleast 1 question by this person accurately to reveal their wish",
           "Peepopointlaugh",
           "You thought you were getting a reward but you got me... Dio",
         ];
         const choice = Math.floor(Math.random() * mes.length);
-        alert(mes[choice]);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+          type: "info",
+        });
       }
     },
   },

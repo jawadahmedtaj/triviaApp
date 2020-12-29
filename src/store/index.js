@@ -100,6 +100,12 @@ export default new Vuex.Store({
         status: false,
         reveal: false
       },
+      special:
+      {
+        message: "Maybe click the image, maybe it leads to somewhere... special?",
+        status: false,
+        reveal: false
+      }
     }
   },
   mutations: {

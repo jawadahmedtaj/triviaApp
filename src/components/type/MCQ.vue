@@ -27,18 +27,6 @@
             </v-btn>
           </form>
         </v-row>
-        <v-row justify="center">
-          <v-fade-transition>
-            <p
-              class="display-1 mt-12"
-              v-if="
-                MCQs[counter].answered === true || rightAnswer[counter] !== ''
-              "
-            >
-              {{ rightAnswer[counter] }}
-            </p>
-          </v-fade-transition>
-        </v-row>
         <v-row justify="space-between">
           <v-btn
             class="leftMoveButton"
@@ -71,9 +59,6 @@ export default {
     return {
       counter: 0,
       MCQs: this.$store.state.MCQs,
-      rightAnswer: new Array(this.$store.state.MCQs.length).fill(
-        "Select the answer(s) you think are correct"
-      ),
     };
   },
   methods: {
@@ -88,13 +73,47 @@ export default {
       }
       if (JSON.stringify(answers) === JSON.stringify(checkers)) {
         this.MCQs[this.counter].answered = true;
-        this.rightAnswer[this.counter] =
-          "Congratulations for once in your life you got something right! Question by: " +
-          this.MCQs[this.counter].by;
+        const mes = [
+          "Congratulations you got something right",
+          "Fine I will give you this win",
+          "Wait... okay",
+          "Brain cells finally started working?",
+          "Oh come on...",
+          "This does seem right",
+          "Oh wow, you actually got it! Good job! Have a cookie!",
+        ];
+        const choice = Math.floor(Math.random() * mes.length);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+        });
+        setTimeout(() => {
+          this.$toast.open({
+            message: "The question was by: " + this.MCQs[this.counter].by,
+            position: "bottom",
+            type: "info",
+          });
+        }, 1000);
       } else {
-        this.MCQs[this.counter].answered = true;
-        this.MCQs[this.counter].answered = false;
-        this.rightAnswer[this.counter] = "Boo boo! Wrong answer(s)";
+        const mes = [
+          "Boo boo! wrong answer!",
+          "Are you even trying?",
+          "This ain't no game, take it seriously",
+          "wew try harder nerd",
+          "Get a life",
+          "Guess you didn't love this person enough :(",
+          "Do you want me to answer instead?",
+          "THAT IS NOT THE RIGHT ANSWER!!",
+          "Have you tried unselecting somethings?",
+        ];
+        const choice = Math.floor(Math.random() * mes.length);
+        this.$toast.clear();
+        this.$toast.open({
+          message: mes[choice],
+          position: "bottom",
+          type: "error",
+        });
       }
     },
   },
