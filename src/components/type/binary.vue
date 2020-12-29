@@ -32,7 +32,7 @@
             <p
               class="display-1 mt-12"
               v-if="
-                rightAnswer[counter] !== '' || binary[counter].answered === true
+                binary[counter].answered === true || rightAnswer[counter] !== ''
               "
             >
               {{ rightAnswer[counter] }}
@@ -88,8 +88,6 @@ export default {
       }
     },
   },
-  watch: {},
-  mounted() {},
   beforeDestroy() {
     this.$store.commit("binaryAnswers", this.binary);
   },
