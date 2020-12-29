@@ -30,7 +30,7 @@ export default new Vuex.Store({
           3: "third option",
           4: "fourth option",
         },
-        answer: 1,
+        answer: [1, 4],
         answered: false
       },
       {
@@ -40,7 +40,7 @@ export default new Vuex.Store({
           1: "first option",
           2: "second option"
         },
-        answer: 2,
+        answer: [1],
         answered: false
       }
     ],
