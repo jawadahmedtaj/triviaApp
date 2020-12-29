@@ -13,10 +13,6 @@ export default {
       default: "simple-keyboard",
       type: String,
     },
-    destroy: {
-      default: false,
-      type: Boolean,
-    },
   },
   data: () => ({
     keyboard: null,
@@ -39,25 +35,6 @@ export default {
   methods: {
     onKeyPress(button) {
       this.$emit("onKeyPress", button);
-    },
-  },
-  watch: {
-    destroy() {
-      if (this.destroy === true) {
-        this.keyboard.destroy();
-      } else {
-        this.keyboard = new Keyboard({
-          onChange: this.onChange,
-          onKeyPress: this.onKeyPress,
-          layout: {
-            default: [
-              "q w e r t y u i o p",
-              "a s d f g h j k l",
-              "z x c v b n m",
-            ],
-          },
-        });
-      }
     },
   },
 };

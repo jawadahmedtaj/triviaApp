@@ -71,7 +71,9 @@ export default {
     return {
       counter: 0,
       binary: this.$store.state.binary,
-      rightAnswer: new Array(this.$store.state.binary.length).fill(" "),
+      rightAnswer: new Array(this.$store.state.binary.length).fill(
+        "So, which one is it?"
+      ),
     };
   },
   methods: {
@@ -84,7 +86,7 @@ export default {
       } else {
         this.binary[this.counter].answered = true;
         this.binary[this.counter].answered = false;
-        this.rightAnswer[this.counter] = "Boo boo! wrong answer";
+        this.rightAnswer[this.counter] = "Boo boo! Wrong answer";
       }
     },
   },

@@ -71,7 +71,9 @@ export default {
     return {
       counter: 0,
       MCQs: this.$store.state.MCQs,
-      rightAnswer: new Array(this.$store.state.MCQs.length).fill(" "),
+      rightAnswer: new Array(this.$store.state.MCQs.length).fill(
+        "Select the answer(s) you think are correct"
+      ),
     };
   },
   methods: {
@@ -79,7 +81,6 @@ export default {
       const objLen = Object.keys(this.MCQs[this.counter].answers).length;
       const answers = this.MCQs[this.counter].answer;
       let checkers = [];
-      console.log(answers);
       for (let i = 0; i < objLen; i++) {
         if (e.target[i].checked) {
           checkers.push(i + 1);
@@ -93,7 +94,7 @@ export default {
       } else {
         this.MCQs[this.counter].answered = true;
         this.MCQs[this.counter].answered = false;
-        this.rightAnswer[this.counter] = "Boo boo! wrong answer";
+        this.rightAnswer[this.counter] = "Boo boo! Wrong answer(s)";
       }
     },
   },

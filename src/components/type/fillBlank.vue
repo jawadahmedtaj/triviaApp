@@ -7,10 +7,7 @@
       <p class="display-1">{{ fillBlank[counter].question }}</p>
     </v-row>
     <v-row justify="center" class="keyboardWidth">
-      <SimpleKeyboard
-        @onKeyPress="onKeyPress"
-        :destroy="fillBlank[counter].answered"
-      />
+      <SimpleKeyboard @onKeyPress="onKeyPress" />
     </v-row>
     <v-row justify="center">
       <v-fade-transition>
@@ -55,32 +52,40 @@ export default {
   components: {
     SimpleKeyboard,
   },
-  props: {},
   data() {
     return {
       counter: 0,
       fillBlank: this.$store.state.fillBlank,
       posHolder: 0,
       firstCheck: false,
-      rightAnswer: new Array(this.$store.state.MCQs.length).fill(" "),
+      rightAnswer: new Array(this.$store.state.fillBlank.length).fill(
+        "Fill in the blank!"
+      ),
     };
   },
-  mounted() {},
+  mounted() {
+    this.posHolder = this.fillBlank[this.counter].question.indexOf("_");
+  },
   methods: {
     onKeyPress(button) {
       const wordPos = this.fillBlank[this.counter].answer.indexOf(button);
-      if (!this.firstCheck) {
-        this.posHolder = this.fillBlank[this.counter].question.indexOf("_");
-        this.firstCheck = true;
-      }
       if (wordPos > -1) {
-        console.log("wordPos: ", wordPos);
         this.fillBlank[this.counter].question = this.replaceAt(
           this.fillBlank[this.counter].question,
           this.posHolder + wordPos,
           button
         );
         this.fillBlank[this.counter].answer[wordPos] = "_";
+      } else {
+        this.counter += 1;
+        this.counter -= 1;
+        this.rightAnswer[this.counter] = "Boo boo! Guess again";
+      }
+      if (this.fillBlank[this.counter].question.indexOf("_") < 0) {
+        this.rightAnswer[this.counter] =
+          "Congratulations for once in your life you got something right! Question by: " +
+          this.fillBlank[this.counter].by;
+        this.fillBlank[this.counter].answered = true;
       }
     },
     replaceAt(str, index, replace) {
@@ -89,14 +94,18 @@ export default {
     counterUpdate(num) {
       this.counter += num;
       this.firstCheck = false;
+      this.posHolder = this.fillBlank[this.counter].question.indexOf("_");
     },
+  },
+  beforeDestroy() {
+    this.$store.commit("fillBlankAnswers", this.fillBlank);
   },
 };
 </script>
 
 <style scoped lang="scss">
 .keyboardWidth {
-  // width: 900px !important;
-  min-width: 900px;
+  width: 65vw;
+  // min-width: 95vw;
 }
 </style>

@@ -5,7 +5,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    count: 0,
     binary: [
       {
         by: "Jawad",
@@ -52,17 +51,23 @@ export default new Vuex.Store({
         answered: false
       },
       {
-        by: "Madi",
+        by: "Hammad",
         question: "Sparky ____ get a",
         answer: ["l", "i", "f", "e"],
         answered: false
-      }
+      },
+      {
+        by: "Fawad",
+        question: "Sparky get a ____",
+        answer: ["l", "i", "f", "e"],
+        answered: false
+      },
     ],
     messages: {
       Hammad:
       {
         message: "Test",
-        status: true,
+        status: false,
         reveal: false
       },
       Jawad:
@@ -80,7 +85,7 @@ export default new Vuex.Store({
       Muneeb:
       {
         message: "Test",
-        status: true,
+        status: false,
         reveal: false
       },
       Rabei:
@@ -92,20 +97,26 @@ export default new Vuex.Store({
       boiiiiii:
       {
         message: "Test2",
-        status: true,
+        status: false,
         reveal: false
       },
     }
   },
   mutations: {
-    increment(state) {
-      state.count++;
-    },
     binaryAnswers(state, data) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].answered) {
+          const name = data[i].by
+          state.messages[name].status = true;
+        }
+      }
       state.binary = data;
     },
     MCQsAnswers(state, data) {
       state.MCQs = data;
+    },
+    fillBlankAnswers(state, data) {
+      state.fillBlank = data;
     }
   },
   actions: {},
