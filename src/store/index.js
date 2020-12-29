@@ -6,6 +6,20 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     count: 0,
+    binary: [
+      {
+        by: "Jawad",
+        question: "Question 1? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
+        answer: 1,
+        answered: false
+      },
+      {
+        by: "Hammad",
+        question: "Question 2? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
+        answer: 2,
+        answered: false
+      }
+    ],
     MCQs: [
       {
         by: "Jawad",
@@ -24,20 +38,6 @@ export default new Vuex.Store({
           1: "first option",
           2: "second option"
         },
-        answer: 2,
-        answered: false
-      }
-    ],
-    binary: [
-      {
-        by: "Jawad",
-        question: "Question 1? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
-        answer: 1,
-        answered: false
-      },
-      {
-        by: "Hammad",
-        question: "Question 2? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
         answer: 2,
         answered: false
       }
@@ -92,6 +92,9 @@ export default new Vuex.Store({
   mutations: {
     increment(state) {
       state.count++;
+    },
+    binaryAnswers(state, data) {
+      state.binary = data;
     }
   },
   actions: {},
