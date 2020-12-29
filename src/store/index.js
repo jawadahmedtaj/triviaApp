@@ -113,9 +113,21 @@ export default new Vuex.Store({
       state.binary = data;
     },
     MCQsAnswers(state, data) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].answered) {
+          const name = data[i].by
+          state.messages[name].status = true;
+        }
+      }
       state.MCQs = data;
     },
     fillBlankAnswers(state, data) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].answered) {
+          const name = data[i].by
+          state.messages[name].status = true;
+        }
+      }
       state.fillBlank = data;
     }
   },
