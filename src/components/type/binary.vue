@@ -71,7 +71,7 @@ export default {
     return {
       counter: 0,
       binary: this.$store.state.binary,
-      rightAnswer: new Array(this.$store.state.binary.length),
+      rightAnswer: new Array(this.$store.state.binary.length).fill(" "),
     };
   },
   methods: {

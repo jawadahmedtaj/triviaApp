@@ -26,10 +26,7 @@ export default {
   mounted() {
   },
   methods: {
-    adder() {
-      this.$store.commit("increment");
-      console.log(this.$store.state.count);
-    },
+    
   },
 };
 </script>
