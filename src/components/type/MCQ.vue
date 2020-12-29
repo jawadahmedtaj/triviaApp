@@ -77,18 +77,29 @@ export default {
   methods: {
     answerChecker(e) {
       const objLen = Object.keys(this.MCQs[this.counter].answers).length;
-      const answerLen = this.MCQs[this.counter].answer.length;
-      console.log(answerLen);
+      const answers = this.MCQs[this.counter].answer;
+      let checkers = [];
+      console.log(answers);
       for (let i = 0; i < objLen; i++) {
         if (e.target[i].checked) {
-          console.log("true");
-        } else {
-          console.log("false");
+          checkers.push(i + 1);
         }
+      }
+      if (JSON.stringify(answers) === JSON.stringify(checkers)) {
+        this.MCQs[this.counter].answered = true;
+        this.rightAnswer[this.counter] =
+          "Congratulations for once in your life you got something right! Question by: " +
+          this.MCQs[this.counter].by;
+      } else {
+        this.MCQs[this.counter].answered = true;
+        this.MCQs[this.counter].answered = false;
+        this.rightAnswer[this.counter] = "Boo boo! wrong answer";
       }
     },
   },
-  beforeDestroy() {},
+  beforeDestroy() {
+    this.$store.commit("MCQsAnswers", this.MCQs);
+  },
 };
 </script>
 

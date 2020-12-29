@@ -97,6 +97,9 @@ export default new Vuex.Store({
     },
     binaryAnswers(state, data) {
       state.binary = data;
+    },
+    MCQsAnswers(state, data) {
+      state.MCQs = data;
     }
   },
   actions: {},
