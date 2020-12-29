@@ -8,17 +8,24 @@
         <v-row justify="center">
           <p class="display-1">{{ MCQs[counter].question }}</p>
         </v-row>
-        <v-row justify="center" class="mt-12">
-          <v-btn
-            depressed
-            class="buttonAdjuster"
-            color="primary"
-            @click="answerChecker(1)"
-            :disabled="MCQs[counter].answered"
-          >
-            Yes
-          </v-btn>
+        <v-row justify="center">
+          <form @submit.prevent="answerChecker" action="" id="questions">
+            <p v-for="(answer, key) in MCQs[counter].answers" :key="key">
+              <input type="checkbox" :value="answer" :name="answer" />
+              <label :for="key">{{ answer }}</label>
+            </p>
+            <v-btn
+              type="submit"
+              depressed
+              class="buttonAdjuster"
+              color="warning"
+              :disabled="MCQs[counter].answered"
+            >
+              Check answers
+            </v-btn>
+          </form>
         </v-row>
+        <v-row justify="center" class="mt-12"> </v-row>
         <v-row justify="center">
           <v-fade-transition>
             <p
@@ -67,10 +74,20 @@ export default {
     };
   },
   methods: {
-    answerChecker() {},
+    answerChecker(e) {
+      console.log(e.target[4].value);
+      console.log("checking");
+    },
   },
   beforeDestroy() {},
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#questions {
+  margin-top: 25px;
+}
+label {
+  margin-left: 25px;
+}
+</style>

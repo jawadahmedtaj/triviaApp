@@ -26,7 +26,9 @@ export default new Vuex.Store({
         question: "Why are you gay?",
         answers: {
           1: "first option",
-          2: "second option"
+          2: "second option",
+          3: "third option",
+          4: "fourth option",
         },
         answer: 1,
         answered: false
