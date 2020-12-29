@@ -12,6 +12,26 @@
         :destroy="fillBlank[counter].answered"
       />
     </v-row>
+    <v-row justify="space-between">
+      <v-btn
+        class="leftMoveButton"
+        depressed
+        color="warning"
+        v-on:click="counter -= 1"
+        :disabled="counter === 0"
+      >
+        <v-icon>mdi-arrow-left-bold-circle</v-icon>
+      </v-btn>
+      <v-btn
+        class="rightMoveButton"
+        depressed
+        color="warning"
+        v-on:click="counter += 1"
+        :disabled="counter === fillBlank.length - 1"
+      >
+        <v-icon>mdi-arrow-right-bold-circle</v-icon>
+      </v-btn>
+    </v-row>
   </div>
 </template>
 
