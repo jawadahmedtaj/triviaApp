@@ -14,52 +14,42 @@ export default new Vuex.Store({
         answered: false
       },
       {
-        by: "Hammad",
-        question: "Question 2? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
-        options: ["Yes", "No"],
-        answer: "No",
+        by: "UwU",
+        question: "Are you gay?",
+        options: ["Yes", "Yems"],
+        answer: "Yems",
         answered: false
       }
     ],
     MCQs: [
       {
-        by: "Jawad",
-        question: "Why are you gay?",
+        by: "Hammad",
+        question: "What generation does the processor i5 8600k belong to?",
         answers: {
-          1: "first option",
-          2: "second option",
-          3: "third option",
-          4: "fourth option",
+          1: "4th Gen",
+          2: "4th Gen",
+          3: "4th Gen",
+          4: "8th Gen",
         },
-        answer: [1, 4],
+        answer: [1, 2, 3],
         answered: false
       },
       {
-        by: "Hammad",
-        question: "Question 2",
+        by: "Faraz",
+        question: "How much do you hate Faraz Bijrani",
         answers: {
-          1: "first option",
-          2: "second option"
+          1: "Yes",
+          2: "No",
+          3: "A little",
+          4: "A lot",
         },
-        answer: [1],
+        answer: [4],
         answered: false
       }
     ],
     fillBlank: [
       {
         by: "Jawad",
-        question: "Sparky get a ____",
-        answer: ["l", "i", "f", "e"],
-        answered: false
-      },
-      {
-        by: "Hammad",
-        question: "Sparky ____ get a",
-        answer: ["l", "i", "f", "e"],
-        answered: false
-      },
-      {
-        by: "Fawad",
         question: "Sparky get a ____",
         answer: ["l", "i", "f", "e"],
         answered: false
@@ -72,33 +62,21 @@ export default new Vuex.Store({
         status: false,
         reveal: false
       },
+      Hammad:
+      {
+        message: "Happy Birthday Sbarky! Stay happy and stay makin financial mistakes as long as they make you happy! uwu",
+        status: false,
+        reveal: false
+      },
+      Faraz:
+      {
+        message: "Happy birthday monkey!",
+        status: false,
+        reveal: false
+      },
       Jawad:
       {
-        message: "Test1",
-        status: false,
-        reveal: false
-      },
-      Fawad:
-      {
-        message: "Test2",
-        status: false,
-        reveal: false
-      },
-      Muneeb:
-      {
-        message: "Test",
-        status: false,
-        reveal: false
-      },
-      Rabei:
-      {
-        message: "Test1",
-        status: false,
-        reveal: false
-      },
-      boiiiiii:
-      {
-        message: "Test2",
+        message: "Many happy return of the day Spock the boomer e.e but most importantly get a life... And may you have many more c:",
         status: false,
         reveal: false
       },
@@ -113,7 +91,7 @@ export default new Vuex.Store({
   mutations: {
     binaryAnswers(state, data) {
       for (let i = 0; i < data.length; i++) {
-        if (data[i].answered) {
+        if (data[i].answered && data[i].by !== "UwU") {
           const name = data[i].by
           state.messages[name].status = true;
         }
@@ -122,7 +100,7 @@ export default new Vuex.Store({
     },
     MCQsAnswers(state, data) {
       for (let i = 0; i < data.length; i++) {
-        if (data[i].answered) {
+        if (data[i].answered && data[i].by !== "UwU") {
           const name = data[i].by
           state.messages[name].status = true;
         }
@@ -131,7 +109,7 @@ export default new Vuex.Store({
     },
     fillBlankAnswers(state, data) {
       for (let i = 0; i < data.length; i++) {
-        if (data[i].answered) {
+        if (data[i].answered && data[i].by !== "UwU") {
           const name = data[i].by
           state.messages[name].status = true;
         }

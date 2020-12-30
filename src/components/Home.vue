@@ -3,7 +3,7 @@
     <div id="app">
       <div id="nav">
         <v-btn class="buttonAdjuster" color="primary" to="/binary"
-          >Yes or No Questions</v-btn
+          >Binary</v-btn
         >
         <v-btn class="buttonAdjuster" color="warning" to="/MCQ">MCQs</v-btn>
         <v-btn color="error" to="/fillBLank">Fill in the blanks</v-btn>
@@ -19,6 +19,15 @@
 export default {
   name: "App",
   mounted() {
+    this.$toast.clear();
+    this.$toast.open({
+      message: "Pick your poison c:",
+      type: "error",
+      duration: 60000,
+      position: "bottom",
+    });
+  },
+  beforeDestroy() {
     this.$toast.clear();
   },
 };
