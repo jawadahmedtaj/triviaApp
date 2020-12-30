@@ -74,7 +74,7 @@ export default {
         duration: 60000,
       });
       if (this.counter === 101) {
-        this.link = "https://youtu.be/y6120QOlsfU";
+        this.link = "https://youtu.be/l1heD4T8Yco";
         this.$toast.clear();
         this.$toast.open({
           message: "AAAAAA okay serious this time, click image again pls c:",
