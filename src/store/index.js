@@ -80,6 +80,12 @@ export default new Vuex.Store({
         status: false,
         reveal: false
       },
+      Fawad:
+      {
+        message: "Happy Birthday Miss Sparky and Happy New Year. May 2021 give bigger pay and better work so you make more sound financial investments",
+        status: true,
+        reveal: false
+      },
       special:
       {
         message: "Maybe click the image, maybe it leads to somewhere... special?",
