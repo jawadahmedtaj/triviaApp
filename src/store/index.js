@@ -36,7 +36,7 @@ export default new Vuex.Store({
       },
       {
         by: "Faraz",
-        question: "How much do you hate Faraz Bijrani",
+        question: "How much do you hate Faraz Bijrani?",
         answers: {
           1: "Yes",
           2: "No",
