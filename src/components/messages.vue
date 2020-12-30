@@ -30,9 +30,12 @@
           </v-card-actions>
           <v-expand-transition>
             <v-card
+              shaped
               v-if="message.reveal"
-              class="transition-fast-in-fast-out v-card--reveal"
-              style="height: 50%"
+              :class="
+                'transition-fast-in-fast-out ' +
+                (key === 'special' ? 'specialCardReveal' : 'v-card--reveal')
+              "
             >
               <v-card-text>
                 <p>
@@ -182,15 +185,20 @@ export default {
 
 <style lang="scss">
 .v-card--reveal {
-  bottom: 0;
+  bottom: 20%;
   opacity: 1 !important;
   position: absolute;
   width: 100%;
+  height: 73%;
+}
+.specialCardReveal {
+  bottom: 0%;
+  opacity: 1 !important;
+  position: absolute;
+  width: 100%;
+  height: 73%;
 }
 .messagesFixer {
   flex-direction: row !important;
-}
-.marginFix {
-  margin-top: 50px;
 }
 </style>
