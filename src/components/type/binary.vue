@@ -13,18 +13,18 @@
             depressed
             class="buttonAdjuster"
             color="primary"
-            @click="answerChecker(1)"
+            @click="answerChecker(binary[counter].options[0])"
             :disabled="binary[counter].answered"
           >
-            Yes
+            {{ binary[counter].options[0] }}
           </v-btn>
           <v-btn
             depressed
             color="error"
-            @click="answerChecker(2)"
+            @click="answerChecker(binary[counter].options[1])"
             :disabled="binary[counter].answered"
           >
-            No
+            {{ binary[counter].options[1] }}
           </v-btn>
         </v-row>
         <v-row justify="space-between">

@@ -7,15 +7,17 @@ export default new Vuex.Store({
   state: {
     binary: [
       {
-        by: "Jawad",
-        question: "Question 1? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
-        answer: 1,
+        by: "Gambit",
+        question: "Is this statement true or false?",
+        options: ["False", "True"],
+        answer: "False",
         answered: false
       },
       {
         by: "Hammad",
         question: "Question 2? (currect answer is yes, but it can be more than just yes or no but please keep it simple)",
-        answer: 2,
+        options: ["Yes", "No"],
+        answer: "No",
         answered: false
       }
     ],
@@ -64,9 +66,9 @@ export default new Vuex.Store({
       },
     ],
     messages: {
-      Hammad:
+      Gambit:
       {
-        message: "Test",
+        message: "Have a great year and even better sleepies xdd 2020 wasn't a great year, but it's just another step towards morphing reality into a place that is \"sparky\" (heh word play) Happy birthday! hf!",
         status: false,
         reveal: false
       },
