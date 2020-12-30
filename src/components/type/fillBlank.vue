@@ -82,13 +82,12 @@ export default {
           message: mes[choice],
           position: "bottom",
         });
-        setTimeout(() => {
-          this.$toast.open({
-            message: "The question was by: " + this.binary[this.counter].by,
-            position: "bottom",
-            type: "info",
-          });
-        }, 1000);
+        this.$toast.open({
+          message: "The question was by: " + this.binary[this.counter].by,
+          position: "bottom",
+          type: "info",
+          duration: 5000,
+        });
       } else {
         const mes = [
           "Boo boo! wrong letter!",

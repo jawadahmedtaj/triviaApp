@@ -22,7 +22,7 @@ export default {
     this.$toast.clear();
     this.$toast.open({
       message: "Pick your poison c:",
-      type: "error",
+      type: "info",
       duration: 60000,
       position: "bottom",
     });

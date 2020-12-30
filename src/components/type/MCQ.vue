@@ -90,14 +90,14 @@ export default {
         this.$toast.open({
           message: mes[choice],
           position: "bottom",
+          duration: 5000,
         });
-        setTimeout(() => {
-          this.$toast.open({
-            message: "The question was by: " + this.MCQs[this.counter].by,
-            position: "bottom",
-            type: "info",
-          });
-        }, 1000);
+        this.$toast.open({
+          message: "The question was by: " + this.MCQs[this.counter].by,
+          position: "bottom",
+          type: "info",
+          duration: 5000,
+        });
       } else {
         const mes = [
           "Boo boo! wrong answer!",

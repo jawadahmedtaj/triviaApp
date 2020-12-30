@@ -182,15 +182,14 @@ export default {
 .v-card--reveal {
   bottom: -6%;
   opacity: 1 !important;
+  position: absolute;
   width: 100%;
-  height: 53%;
 }
 .specialCardReveal {
   bottom: 0%;
   opacity: 1 !important;
   position: absolute;
   width: 100%;
-  height: 73%;
 }
 .messagesFixer {
   flex-direction: row !important;
