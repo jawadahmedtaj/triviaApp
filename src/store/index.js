@@ -80,10 +80,10 @@ export default new Vuex.Store({
         answers: {
           1: "Yes",
           2: "No",
-          3: "A little",
-          4: "A lot",
+          3: "A lot",
+          4: "A little",
         },
-        answer: [4],
+        answer: [3],
         answered: false
       },
       {
@@ -138,11 +138,11 @@ export default new Vuex.Store({
         question: "Which emoji does Sparky use the most?",
         answers: {
           1: ":heart:",
-          2: ":praycheems:",
-          3: ":PepeAngryGun:",
+          2: ":PepeAngryGun:",
+          3: ":praycheems:",
           4: ":Poggies_C:",
         },
-        answer: [3],
+        answer: [2],
         answered: false
       },
     ],

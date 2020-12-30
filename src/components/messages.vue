@@ -5,52 +5,47 @@
     </v-btn>
     <div class="messagesFixer">
       <v-row no-gutters>
-        <v-card
-          shaped
-          class="mx-5 my-5"
-          min-width="310"
-          max-width="310"
-          v-for="(message, key) in messages"
-          :key="key"
-        >
-          <v-card-text>
-            <p class="display-1 text--primary">
-              {{ key }}
-            </p>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn
-              text
-              color="teal accent-4"
-              @click="revealChecker(key)"
-              :disabled="message.reveal"
-            >
-              Reveal message
-            </v-btn>
-          </v-card-actions>
-          <v-expand-transition>
-            <v-card
-              shaped
-              v-if="message.reveal"
-              :class="
-                'transition-fast-in-fast-out ' +
-                (key === 'special' ? 'specialCardReveal' : 'v-card--reveal')
-              "
-            >
-              <v-card-text>
-                <p>
-                  {{ message.message }}
-                </p>
-                <a target="_blank" :href="link" @click="linkChange">
-                  <v-img
-                    v-if="key === 'special'"
-                    src="../assets/imgs/magik.png"
-                  ></v-img>
-                </a>
-              </v-card-text>
-            </v-card>
-          </v-expand-transition>
-        </v-card>
+        <div v-for="(message, key) in messages" :key="key">
+          <v-card shaped class="mx-5 my-5" min-width="310" max-width="310">
+            <v-card-text>
+              <p class="display-1 text--primary">
+                {{ key }}
+              </p>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn
+                text
+                color="teal accent-4"
+                @click="revealChecker(key)"
+                :disabled="message.reveal"
+              >
+                Reveal message
+              </v-btn>
+            </v-card-actions>
+            <v-expand-transition>
+              <v-card
+                shaped
+                v-if="message.reveal"
+                :class="
+                  'transition-fast-in-fast-out ' +
+                  (key === 'special' ? 'specialCardReveal' : 'v-card--reveal')
+                "
+              >
+                <v-card-text>
+                  <p>
+                    {{ message.message }}
+                  </p>
+                  <a target="_blank" :href="link" @click="linkChange">
+                    <v-img
+                      v-if="key === 'special'"
+                      src="../assets/imgs/magik.png"
+                    ></v-img>
+                  </a>
+                </v-card-text>
+              </v-card>
+            </v-expand-transition>
+          </v-card>
+        </div>
       </v-row>
     </div>
   </v-container>
@@ -185,11 +180,10 @@ export default {
 
 <style lang="scss">
 .v-card--reveal {
-  bottom: 20%;
+  bottom: -6%;
   opacity: 1 !important;
-  position: absolute;
   width: 100%;
-  height: 73%;
+  height: 53%;
 }
 .specialCardReveal {
   bottom: 0%;
@@ -200,5 +194,8 @@ export default {
 }
 .messagesFixer {
   flex-direction: row !important;
+  height: 100vh;
+  margin-top: 20%;
+  margin-bottom: 150px;
 }
 </style>
