@@ -45,7 +45,18 @@ export default new Vuex.Store({
         },
         answer: [4],
         answered: false
-      }
+      },
+      {
+        by: "Tajamul",
+        question: "What came first? Sbarky, Chimken or the Egg?",
+        answers: {
+          1: "Sbarky",
+          2: "Chimken",
+          3: "The egg",
+        },
+        answer: [1, 2, 3],
+        answered: false
+      },
     ],
     fillBlank: [
       {
