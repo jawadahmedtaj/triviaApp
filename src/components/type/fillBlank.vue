@@ -81,13 +81,19 @@ export default {
           message: mes[choice],
           position: "bottom",
         });
-        this.$toast.open({
-          message: "The question was by: " + this.binary[this.counter].by,
-          position: "bottom",
-          type: "info",
-          duration: 5000,
-        });
-      } else {
+        if (
+          this.fillBlank[this.counter].answer.join().match(/_/g).length ===
+          this.fillBlank[this.counter].answer.length
+        ) {
+          this.fillBlank[this.counter].answered = true;
+          this.$toast.open({
+            message: "The question was by: " + this.fillBlank[this.counter].by,
+            position: "bottom",
+            type: "info",
+            duration: 5000,
+          });
+        }
+      } else if (!this.fillBlank[this.counter].answered) {
         const mes = [
           "Boo boo! wrong letter!",
           "Are you even trying?",
@@ -107,9 +113,6 @@ export default {
           position: "bottom",
           type: "error",
         });
-      }
-      if (this.fillBlank[this.counter].question.indexOf("_") < 0) {
-        this.fillBlank[this.counter].answered = true;
       }
     },
     replaceAt(str, index, replace) {
