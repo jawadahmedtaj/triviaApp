@@ -48,6 +48,13 @@ export default new Vuex.Store({
         answer: "Sexist Monkeys",
         answered: false
       },
+      {
+        by: "Azrath",
+        question: "Is Sparky racist?",
+        options: ["Yes", "Heck yeah"],
+        answer: "Heck yeah",
+        answered: false
+      },
     ],
     MCQs: [
       {
@@ -145,6 +152,42 @@ export default new Vuex.Store({
         answer: [2],
         answered: false
       },
+      {
+        by: "Azrath",
+        question: "What was the first megastructure we made in minecraft?",
+        answers: {
+          1: "The Islamic Caliphate",
+          2: "Enderman",
+          3: "Mob Farm",
+          4: "Item transfer and sorting and refining station",
+        },
+        answer: [4],
+        answered: false
+      },
+      {
+        by: "Azrath",
+        question: "What color sheep does Azrath love to kill?",
+        answers: {
+          1: "Pink",
+          2: "Green",
+          3: "Yellow",
+          4: "Rainbow",
+        },
+        answer: [1],
+        answered: false
+      },
+      {
+        by: "Azrath",
+        question: "How would you describe Azrath's driving?",
+        answers: {
+          1: "Rash",
+          2: "Decent",
+          3: "THE ABSOLUTE BEST",
+          4: "vroom vroom we gon die",
+        },
+        answer: [4],
+        answered: false
+      },
     ],
     fillBlank: [
       {
@@ -229,7 +272,7 @@ export default new Vuex.Store({
       },
       Aatir:
       {
-        message: "Template",
+        message: "Happy birthday Sparky!!! You're honestly a v nice person and give v wholesome vibes, hope you a have long and happy successful life, Ameen!! also hope 2 keep seeing more dragons in dungeons and berserkers in arenas together!1!1!1!1",
         status: false,
         reveal: false
       },
@@ -248,7 +291,7 @@ export default new Vuex.Store({
       Azrath:
       {
         message: "Heyyyyy sbarky I guess its your birthday hehe. Make sure you didn't spend everything on impulse Ali Express purchases because I want treat ;-;. Thank you for existing gr8 frnd. Islamic caliphate will be revived very soon. Have the greatest of days today because you deserve it. UwU",
-        status: true,
+        status: false,
         reveal: false
       },
       Rabei:
