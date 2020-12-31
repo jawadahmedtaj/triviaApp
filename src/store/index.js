@@ -233,6 +233,12 @@ export default new Vuex.Store({
         status: false,
         reveal: false
       },
+      Azrath:
+      {
+        message: "Heyyyyy sbarky I guess its your birthday hehe. Make sure you didn't spend everything on impulse Ali Express purchases because I want treat ;-;. Thank you for existing gr8 frnd. Islamic caliphate will be revived very soon. Have the greatest of days today because you deserve it. UwU",
+        status: true,
+        reveal: false
+      },
       Rabei:
       {
         message: "Happy Birthday Sadiaa!! you’re a very strong, independent and amazing woman, and I absolutely love, adore and look up to you. Getting to know you has been such a pleasure. Pls keep kicking ass always!! 💕",
