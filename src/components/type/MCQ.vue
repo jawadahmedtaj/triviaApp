@@ -14,6 +14,7 @@
               <v-checkbox
                 :label="answer"
                 :disabled="MCQs[counter].answered"
+                v-model="falser[key]"
               ></v-checkbox>
             </p>
             <v-btn
@@ -32,7 +33,7 @@
             class="leftMoveButton"
             depressed
             color="warning"
-            v-on:click="counter -= 1"
+            v-on:click="questionChanger(-1)"
             :disabled="counter === 0"
           >
             <v-icon>mdi-arrow-left-bold-circle</v-icon>
@@ -41,7 +42,7 @@
             class="rightMoveButton"
             depressed
             color="warning"
-            v-on:click="counter += 1"
+            v-on:click="questionChanger(1)"
             :disabled="counter === MCQs.length - 1"
           >
             <v-icon>mdi-arrow-right-bold-circle</v-icon>
@@ -59,12 +60,17 @@ export default {
     return {
       counter: 0,
       MCQs: this.$store.state.MCQs,
+      falser: [false, false, false, false, false],
     };
   },
   mounted() {
     this.$toast.clear();
   },
   methods: {
+    questionChanger(val) {
+      this.counter += val;
+      this.falser = new Array(5).fill(false);
+    },
     answerChecker(e) {
       const objLen = Object.keys(this.MCQs[this.counter].answers).length;
       const answers = this.MCQs[this.counter].answer;
