@@ -6,7 +6,7 @@
     <div class="messagesFixer">
       <v-row no-gutters>
         <div v-for="(message, key) in messages" :key="key">
-          <v-card shaped class="mx-5 my-5" min-width="310" max-width="310">
+          <v-card shaped class="mx-5 my-12" min-width="310" max-width="310">
             <v-card-text>
               <p class="display-1 text--primary">
                 {{ key }}
@@ -180,7 +180,7 @@ export default {
 
 <style lang="scss">
 .v-card--reveal {
-  bottom: -6%;
+  bottom: 0%;
   opacity: 1 !important;
   position: absolute;
   width: 100%;
@@ -188,7 +188,6 @@ export default {
 .specialCardReveal {
   bottom: 0%;
   opacity: 1 !important;
-  position: absolute;
   width: 100%;
 }
 .messagesFixer {

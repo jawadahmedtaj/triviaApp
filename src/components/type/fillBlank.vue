@@ -45,12 +45,11 @@ export default {
       counter: 0,
       fillBlank: this.$store.state.fillBlank,
       posHolder: 0,
-      firstCheck: false,
+      keyCounter: 0,
     };
   },
   mounted() {
     this.posHolder = this.fillBlank[this.counter].question.indexOf("_");
-
     this.$toast.clear();
   },
   methods: {
@@ -118,7 +117,6 @@ export default {
     },
     counterUpdate(num) {
       this.counter += num;
-      this.firstCheck = false;
       this.posHolder = this.fillBlank[this.counter].question.indexOf("_");
     },
   },
