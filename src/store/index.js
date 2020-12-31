@@ -165,6 +165,12 @@ export default new Vuex.Store({
         answer: ["n", "o"],
         answered: false
       },
+      {
+        by: "Aatir",
+        question: "What rhymes with slarky and gets ragdolled out of arena? ______",
+        answer: ["s", "p", "a", "r", "k", "y"],
+        answered: false
+      },
     ],
     messages: {
       Gambit:
@@ -217,7 +223,13 @@ export default new Vuex.Store({
       },
       Tajamul:
       {
-        message: "Message pending",
+        message: "Habby Birhtday Sbraky :Poggies_C: may you haff many more, may you stay happi, may you keep haffing nize days pepehands, also stahp being greedy in dnd :PepeAngryGun: one of the most genuine ppl on discord poggies, live long and happi pls, also khi meet up when hello?? Once again HBD Poggies",
+        status: false,
+        reveal: false
+      },
+      Aatir:
+      {
+        message: "Template",
         status: false,
         reveal: false
       },
