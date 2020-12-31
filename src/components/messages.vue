@@ -87,7 +87,7 @@ export default {
           duration: 60000,
         });
       } else if (this.counter === 102) {
-        this.link = "#";
+        this.link = "https://youtu.be/ogYCa-niSVM";
       }
       this.counter++;
     },
