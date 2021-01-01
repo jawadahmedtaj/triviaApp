@@ -236,7 +236,7 @@ export default new Vuex.Store({
       },
       Jawad:
       {
-        message: "Many happy return of the day Spock the fellow boomer e.e but most importantly get a life... And may you have many more c:",
+        message: "Many happy return of the day Spock the fellow boomer e.e but most importantly get a life... And may you have many many more InshaAllah, stay blessed, stay happy c:",
         status: false,
         reveal: false
       },
